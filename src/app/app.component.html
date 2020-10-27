@@ -1,6 +1,10 @@
 <h1>Angular</h1>
-<img [src]="img" alt="" />
 
+<input type="text" (input)="onInput($event)" />
+<p>
+  <strong>{{ inputValue }}</strong>
+</p>
+<button (click)="onClick()">CLick me!</button>
 <hr />
 
 <app-post></app-post>
