@@ -8,10 +8,10 @@ import { Post } from '../app.component';
 })
 export class PostComponent implements OnInit {
   @Input() post: Post;
-  @Output() onRemove = new EventEmitter<number>();
+  @Output() removePos = new EventEmitter<number>();
 
-  removePost() {
-    this.onRemove.emit(this.post.id);
+  removePost(): void {
+    this.removePos.emit(this.post.id);
   }
   ngOnInit(): void {}
 }

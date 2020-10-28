@@ -7,7 +7,7 @@ import { Post } from '../app.component';
   styleUrls: ['./post-form.component.scss'],
 })
 export class PostFormComponent implements OnInit {
-  @Output() onAdd: EventEmitter<Post> = new EventEmitter<Post>();
+  @Output() addPos: EventEmitter<Post> = new EventEmitter<Post>();
   title = '';
   text = '';
 
@@ -15,13 +15,13 @@ export class PostFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addPost() {
+  addPost(): void {
     if (this.title.trim() && this.text.trim()) {
       const post: Post = {
         title: this.title,
         text: this.text,
       };
-      this.onAdd.emit(post);
+      this.addPos.emit(post);
       console.log('New Post', post);
       this.title = this.text = '';
     }

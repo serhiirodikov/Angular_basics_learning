@@ -15,10 +15,10 @@ export class AppComponent {
     { title: 'Angular component less', text: 'more text', id: 1 },
     { title: 'One more post', text: 'more and more texttttt', id: 2 },
   ];
-  updatePosts(post: Post) {
+  updatePosts(post: Post): void {
     this.posts.unshift(post);
   }
-  removePost(id: number) {
+  removePost(id: number): void {
     this.posts = this.posts.filter((p) => p.id !== id);
   }
 }
