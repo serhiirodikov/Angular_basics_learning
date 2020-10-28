@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+export interface Post {
+  title: string;
+  text: string;
+  id?: number;
+}
 
 @Component({
   selector: 'app-root',
@@ -6,26 +11,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  toggle = false;
-  arr = [1, 1, 2, 3, 5, 8];
-  objs = [
-    {
-      title: 'post1',
-      author: 'Serhii',
-      comments: [
-        { name: 'Serhii', text: 'lorem1' },
-        { name: 'Serhii', text: 'lorem1' },
-        { name: 'Serhii', text: 'lorem1' },
-      ],
-    },
-    {
-      title: 'post2',
-      author: 'Serhii2',
-      comments: [
-        { name: 'Serhii2', text: 'lorem1' },
-        { name: 'Serhii2', text: 'lorem1' },
-        { name: 'Serhii2', text: 'lorem1' },
-      ],
-    },
+  posts: Post[] = [
+    { title: 'Angular component less', text: 'more text', id: 1 },
+    { title: 'One more post', text: 'more and more texttttt', id: 2 },
   ];
 }
