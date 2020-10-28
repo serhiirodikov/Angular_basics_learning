@@ -15,4 +15,7 @@ export class AppComponent {
     { title: 'Angular component less', text: 'more text', id: 1 },
     { title: 'One more post', text: 'more and more texttttt', id: 2 },
   ];
+  updatePosts(post: Post) {
+    this.posts.unshift(post);
+  }
 }
