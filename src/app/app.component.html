@@ -1,11 +1,52 @@
 <h1>Angular</h1>
+<button (click)="toggle = !toggle">Toggle</button>
+<div
+  [ngStyle]="{
+    'width.px': 200,
+    'height.px': 200,
+    'borderRadius.px': 5,
+    border: '1px solid #ccc',
+    background: toggle ? 'red' : 'blue'
+  }"
+></div>
 
-<input type="text" (input)="onInput($event)" />
-<p>
-  <strong>{{ inputValue }}</strong>
+<!-- <p
+  [ngClass]="{
+    red: toggle,
+    blue: !toggle
+  }"
+>
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, magni.
+</p> -->
+<p class="red" *ngIf="toggle; else blueP">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, aut!
 </p>
-<button (click)="onClick()">CLick me!</button>
-<hr />
 
-<app-post></app-post>
-<app-post3></app-post3>
+<ng-template #blueP>
+  <p class="blue">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, aut!
+  </p>
+</ng-template>
+<div [ngSwitch]="toggle">
+  <p class="red" *ngSwitchCase="true">Switch true</p>
+  <p class="blue" *ngSwitchCase="false">Switch false</p>
+</div>
+
+<!-- <ul>
+  <li *ngFor="let num of arr">
+    {{ num }}
+  </li>
+</ul> -->
+<ul>
+  <li *ngFor="let post of objs">
+    <p>
+      {{ post.title }} <b>{{ post.author }} </b>
+    </p>
+    <ul>
+      <li *ngFor="let comment of post.comments">
+        <small>{{ comment.name }}</small>
+        <p>{{ comment.text }}</p>
+      </li>
+    </ul>
+  </li>
+</ul>
